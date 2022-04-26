@@ -1,0 +1,73 @@
+.Login {
+    background-color: #36393f;
+    flex: 1;
+    // margin: 10rem 25rem;
+    display: flex;
+    .p-card-body {
+        flex: 1;
+        display: flex;
+        .p-card-content {
+            flex: 1;
+            display: flex;
+            .login-form {
+                flex: 3;
+                display: flex;
+                flex-direction: column;
+                .header {
+                    flex: 1;
+                    font-family: Ginto, "Helvetica Neue", Helvetica, Arial,
+                        sans-serif;
+                    font-size: 2rem;
+                    color: #fff;
+                    .back-message {
+                        color: #b9bbbe;
+                        font-size: 1.4rem;
+                    }
+                }
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 3;
+                    margin-top: 1.4rem;
+                    .field {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        margin: 1rem;
+                        .block {
+                            width: 100%;
+                            height: 4rem;
+                            border: none;
+                            background-color: #202225;
+                            &:hover,
+                            &:focus,
+                            &:active {
+                                border: none;
+                                box-shadow: none;
+                            }
+                        }
+                        .login-btn {
+                            background-color: #5865f2;
+                            font-size: 1.4rem;
+                            font-family: Ginto, "Helvetica Neue", Helvetica,
+                                Arial, sans-serif;
+                            font-weight: bold;
+                        }
+                        label {
+                            font-size: 1.2rem;
+                            margin-bottom: 1rem;
+                            font-family: Ginto, "Helvetica Neue", Helvetica,
+                                Arial, sans-serif;
+                            font-weight: bold;
+                            color: #b9bbbe;
+                        }
+                    }
+                }
+            }
+            .qr-login-form {
+                flex: 2;
+            }
+        }
+    }
+}

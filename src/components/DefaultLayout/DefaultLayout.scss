@@ -1,0 +1,26 @@
+.DefaultLayout {
+    display: flex;
+    width: 100vw;
+    .main-header {
+        width: 8rem;
+        height: 100%;
+        .p-menu {
+            height: 100%;
+            width: 100%;
+            background-color: #202225;
+            border: none;
+            .p-menuitem {
+                padding: 1rem;
+                width: 7rem;
+                height: 7rem;
+                a {
+                    text-decoration: none;
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+    .main-content {
+        flex: 1;
+    }
+}

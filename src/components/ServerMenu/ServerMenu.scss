@@ -1,0 +1,32 @@
+.nav-button {
+    background-color: #36393f;
+    box-shadow: none;
+    border: none;
+    width: 100% !important;
+    height: 100%;
+    border-radius: 3rem;
+    font-size: 1.8rem;
+    &:hover,
+    &:active {
+        border-radius: 0.5rem;
+    }
+    &:focus {
+        box-shadow: none;
+    }
+    .p-button-icon {
+        font-size: 2rem;
+    }
+}
+
+.highlight-menu-button {
+    background-color: hsl(
+        235,
+        calc(var(--saturation-factor, 1) * 85.6%),
+        64.7%
+    );
+    box-shadow: none;
+    border: none;
+    border-radius: 0.5rem;
+    width: 100% !important;
+    height: 100%;
+}

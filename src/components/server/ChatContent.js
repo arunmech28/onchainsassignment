@@ -5,7 +5,7 @@ import Pusher from "pusher-js";
 
 const ChatContent = () => {
     const [messages, setMessages] = useState([]);
-    const pusher = new Pusher("61a2b9cf3efcc637be74", {
+    const pusher = new Pusher("8f7d59faf071e5d4232a", {
       cluster: "ap2",
      });
 

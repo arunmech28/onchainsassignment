@@ -23,12 +23,13 @@ const Login = () => {
     };
 
     const onClickHandler = () => {
+        sessionStorage.setItem("username", formData.email);
         dispatch(setUsername(formData.email));
         setIsLoggedIn(true);
     };
 
     if (isLoggedIn) {
-        return <Redirect to="/home"></Redirect>;
+        return <Redirect to="/channels/@me"></Redirect>;
     }
 
     return (
@@ -75,7 +76,6 @@ const Login = () => {
                         <Button
                             className="block login-btn"
                             label="Login"
-                            // onClick={onClickHandler}
                             type="submit"
                         ></Button>
                     </div>

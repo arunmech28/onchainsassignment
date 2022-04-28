@@ -1,0 +1,39 @@
+.Message {
+    display: flex;
+    flex: 1;
+    height: 4rem;
+    padding: 0.5rem;
+    .profile-icon {
+        width: 6rem;
+        .profile-photo {
+            margin-left: 1rem;
+            height: 4rem;
+            border-radius: 4rem;
+        }
+    }
+    .message-group {
+        flex: 1;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 1rem;
+        align-items: flex-start;
+        .message-detail {
+            display: flex;
+            margin-bottom: 1rem;
+            align-items: center;
+            .time-info {
+                color: #a3a6aa;
+                font-size: 0.85rem;
+                margin-left: 1rem;
+            }
+        }
+        .message-text {
+            color: #dcddde;
+            font-weight: 400;
+        }
+    }
+}

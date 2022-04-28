@@ -11,6 +11,8 @@
         "body-parser": "^1.20.0",
         "cors": "^2.8.5",
         "express": "^4.17.3",
+        "json-server": "^0.17.0",
+        "moment": "^2.29.3",
         "node-sass": "^7.0.1",
         "primeflex": "^2.0.0",
         "primeicons": "^5.0.0",
@@ -29,7 +31,8 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "backend": "json-server --watch ./src/data/db.json --port 5000 --delay=500 "
     },
     "eslintConfig": {
         "extends": [

@@ -1,36 +1,17 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { getSelectedChannel, updateMessages } from "pages/Servers/serversSlice";
+import { useDispatch, useSelector } from "react-redux";
 
+import ChatContent from "./ChatContent";
 import { Hashtag } from "utils/images";
 import { InputText } from "primereact/inputtext";
-import Pusher from "pusher-js";
 import axios from "axios";
-import { getSelectedChannel } from "pages/Servers/serversSlice";
 import { getUsername } from "pages/Login/loginSlice";
-import { useSelector } from "react-redux";
 
 const ChannelChat = () => {
     const [message, setMessage] = useState("");
-    const [allMessages, setAllMessages] = useState(null);
     const username = useSelector(getUsername);
     const selectedChannel = useSelector(getSelectedChannel);
-    // const pusher = new Pusher({
-    //     appId: "1400635",
-    //     key: "61a2b9cf3efcc637be74",
-    //     secret: "db727fc561d83332c6b9",
-    //     cluster: "ap2",
-    // });
-
-    // useEffect(() => {
-    //     loadData();
-    // }, []);
-
-    // const loadData = () => {
-    //     const channel = pusher.subscribe("onchains-assignment-arun");
-    //     channel.bind("message", (data) => {
-    //         setAllMessages(data);
-    //         console.log(data);
-    //     });
-    // };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -38,11 +19,19 @@ const ChannelChat = () => {
             username,
             message,
         };
-        // channel.trigger("message", payload);
-        // axios.post("https://localhost:5000/message", payload).then((res) => {
-        //     loadData();
-        //     console.log(res);
-        // });
+        axios
+            .post("http://localhost:5001/message/send", payload, {
+                headers: {
+                    Accept: "application/json",
+                    "Access-Control-Allow-Methods":
+                        "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+                },
+            })
+            .then((res) => {
+                if (res.status == 200) {
+                    setMessage("");
+                }
+            });
     };
 
     const onChangeHandler = (e) => {
@@ -63,11 +52,15 @@ const ChannelChat = () => {
                     </Fragment>
                 )}
             </div>
-            <div className="chat-content"></div>
+            <ChatContent />
             <div className="chat-message-input">
-                <form onSubmit={handleSubmit} className="input-message-form">
+                <form
+                    method="post"
+                    onSubmit={handleSubmit}
+                    className="input-message-form"
+                >
                     <div className="field">
-                        <span className="p-input-icon-left">
+                        <div className="p-input-icon-left">
                             <i className="pi pi-plus-circle add-icon" />
                             <InputText
                                 autoComplete="off"
@@ -77,7 +70,7 @@ const ChannelChat = () => {
                                 value={message}
                                 onChange={onChangeHandler}
                             />
-                        </span>
+                        </div>
                     </div>
                 </form>
             </div>

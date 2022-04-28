@@ -4,21 +4,20 @@ import React, { useEffect, useState } from "react";
 
 import { Menu } from "primereact/menu";
 import { getServerList } from "./navbar.service";
-import { setCurrentSelectedServer } from "./navbarSlice";
 import { setServerDetails } from "pages/Servers/serversSlice";
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
     const [items, setItems] = useState([]);
-
-    // const dispatch = useDispatch();
-
-    // const onServerClick = (server) => {
-    //     dispatch(setServerDetails(server));
-    // };
+    const location = useLocation();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         setItems(getServerList());
+        if (location.pathname == "/channels/@me") {
+            dispatch(setServerDetails("Home"));
+        }
     }, []);
 
     return (

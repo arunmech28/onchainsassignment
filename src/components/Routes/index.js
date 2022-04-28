@@ -9,13 +9,13 @@ const Routes = () => {
     return (
         <DefaultLayout>
             <Switch>
-                <Route exact path="/home" component={Home} />
                 <Route exact path="/channels" component={Servers} />
                 <Route
                     exact
                     path="/channels/:serverId/:channelId"
                     component={Servers}
                 />
+                <Route exact path="/channels/@me" component={Servers} />
             </Switch>
         </DefaultLayout>
     );
